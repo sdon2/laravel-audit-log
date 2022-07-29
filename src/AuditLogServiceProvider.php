@@ -2,8 +2,6 @@
 
 namespace Sdon2\AuditLog;
 
-use Illuminate\Auth\AuthManager;
-use Illuminate\Config\Repository;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 use Sdon2\AuditLog\Models\AuditLog;

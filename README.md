@@ -4,7 +4,7 @@ The `sdon2/laravel-audit-log` package provides easy to use functions to log the 
 
 
 ```php
-auditLog()->log('Look, I logged something');
+AuditLogger::log('Look, I logged something');
 ```
 
 You can retrieve all activity using the `Sdon2\Auditlog\Models\AuditLog` model.
@@ -15,8 +15,7 @@ AuditLog::all();
 
 Here's a more advanced example:
 ```php
-auditLog()
-   ->performedOn($anEloquentModel)
+AuditLogger::performedOn($anEloquentModel)
    ->causedBy($user)
    ->withProperties(['customProperty' => 'customValue'])
    ->log('Look, I logged something');
@@ -64,6 +63,7 @@ You can install the package via composer:
 composer require sdon2/laravel-audit-log
 ```
 
+# Optional for laravel 8
 Next, you must install the service provider:
 
 ```php
@@ -98,10 +98,6 @@ This is the contents of the published config file:
 ```php
 
 return [
-    /**
-     * You can specify the route prefix
-     */
-    'route_prefix' => 'audit-log',
     /**
      * When user visit every url update audit log
      */
@@ -140,11 +136,6 @@ return [
      * it should be or extend the \Sdon2\AuditLog\Models\AuditLog model.
      */
     'audit_log_model' => \Sdon2\AuditLog\Models\AuditLog::class,
-    
-    /*
-     * If set to true, it will store lat/long to the database
-     */
-    'track_location' => true,
 
     /*
      * If set to true, it will store ip address to the database

@@ -40,5 +40,12 @@
     "scripts": {
         "test": "vendor/bin/phpunit"
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sdon2\\AuditLog\\AuditLogServiceProvider"
+            ]
+        }
+    },
     "license": "MIT"
 }
